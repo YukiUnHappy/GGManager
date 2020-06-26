@@ -33,7 +33,7 @@ namespace KKManager.Updater.Sources
             _bucketName = serverUri.LocalPath.Trim('/');
             if (string.IsNullOrEmpty(_bucketName)) throw new ArgumentException("Bucket is missing", nameof(serverUri));
 
-            var config = new AmazonS3Config { ServiceURL = endpoint };
+            var config = new AmazonS3Config { ServiceURL = endpoint, ProxyHost = "127.0.0.1", ProxyPort = 1081 };
             _s3Client = new AmazonS3Client(credentials.UserName, credentials.Password, config);
             //// Make sure the connection is possible
             //if (!_s3Client.ListObjectsV2(new ListObjectsV2Request { BucketName = _bucketName, MaxKeys = 1 }).S3Objects.Any())
