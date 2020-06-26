@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
@@ -21,12 +22,20 @@ namespace KKManager
         [STAThread]
         private static void Main()
         {
-            AppDomain.CurrentDomain.UnhandledException += (sender, args) => Console.WriteLine("UNHANDLED EXCEPTION: " + args.ExceptionObject);
-            AppDomain.CurrentDomain.UnhandledException += NBug.Handler.UnhandledException;
+            AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
+            {
+                Console.WriteLine("UNHANDLED EXCEPTION: " + args.ExceptionObject);
+                NBug.Handler.UnhandledException(sender, args);
+            };
 
             Logger = LogWriter.StartLogging();
             using (Logger)
             {
+                CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+                CultureInfo.CurrentUICulture = CultureInfo.InvariantCulture;
+                CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
+                CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
+
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new MainWindow());

@@ -549,20 +549,28 @@ namespace KKManager.Windows
 
 
                 var files = directories.SelectMany(dir => dir.GetFiles("*", SearchOption.AllDirectories))
-                    .Where(SB3UGS_Utils.FileIsAssetBundle)
-                    .Where(file => !FileIsBlacklisted(file))
+                    .Where(file => FileCanBeCompressed(file, rootDirectory))
                     .ToList();
 
                 CompressFiles(files, false);
-
-                bool FileIsBlacklisted(FileInfo x)
-                {
-                    // Files inside StreamingAssets are hash-checked so they can't be changed
-                    return x.FullName.Substring(rootDirectory.FullName.Length)
-                        .Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)
-                        .Contains("StreamingAssets", StringComparer.OrdinalIgnoreCase);
-                }
             }
+        }
+
+        private bool FileCanBeCompressed(FileInfo x, DirectoryInfo rootDirectory)
+        {
+            if (!SB3UGS_Utils.FileIsAssetBundle(x)) return false;
+
+            // Files inside StreamingAssets are hash-checked so they can't be changed
+            var isStreamingAsset = x.FullName.Substring(rootDirectory.FullName.Length)
+                .Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)
+                .Contains("StreamingAssets", StringComparer.OrdinalIgnoreCase);
+            if (isStreamingAsset)
+            {
+                Console.WriteLine($"Skipping file {x.FullName} - Files inside StreamingAssets folder are hash-checked and can't be modified.");
+                return false;
+            }
+
+            return true;
         }
 
         private void CompressFiles(IReadOnlyList<FileInfo> files, bool randomizeCab)
@@ -619,7 +627,10 @@ namespace KKManager.Windows
             {
                 if (d.ShowDialog() == CommonFileDialogResult.Ok)
                 {
-                    var files = new DirectoryInfo(d.FileName).GetFiles("*", SearchOption.AllDirectories).Where(SB3UGS_Utils.FileIsAssetBundle).ToList();
+                    var rootDirectory = new DirectoryInfo(d.FileName);
+                    var files = rootDirectory.GetFiles("*", SearchOption.AllDirectories)
+                        .Where(file => FileCanBeCompressed(file, rootDirectory))
+                        .ToList();
 
                     var randomize = MessageBox.Show("Do you want to randomize CABs of the compressed files? Click No to keep the original CAB strings.",
                                         "Compress bundles in a folder...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==

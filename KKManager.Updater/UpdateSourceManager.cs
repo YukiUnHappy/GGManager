@@ -24,6 +24,8 @@ namespace KKManager.Updater
                     return new ZipUpdater(new FileInfo(link.LocalPath), listingPriority);
                 case "ftp":
                     return new FtpUpdater(link, listingPriority);
+                case "csb":
+                    return new S3Updater(link, listingPriority, 5);
                 case "https":
                     if (link.Host.ToLower() == "mega.nz")
                         return new MegaUpdater(link, listingPriority);
@@ -128,7 +130,7 @@ namespace KKManager.Updater
             {
                 Console.WriteLine("Loading sources from UpdateSourcesDebug file at " + updateSourcesPathDebug);
 
-                updateSources = File.ReadAllLines(updateSourcesPath).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
+                updateSources = File.ReadAllLines(updateSourcesPathDebug).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
             }
             else
             {
