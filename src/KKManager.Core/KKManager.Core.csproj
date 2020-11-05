@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{09FC4EF5-9694-4961-A136-DCFD8B5F1368}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KKManager</RootNamespace>
+    <AssemblyName>KKManager.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>false</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>embedded</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ben.Demystifier, Version=0.1.0.0, Culture=neutral, PublicKeyToken=a6d206e05440431a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ben.Demystifier.0.1.6\lib\net45\Ben.Demystifier.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagePack, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessagePack.2.1.152\lib\netstandard2.0\MessagePack.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagePack.Annotations, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessagePack.Annotations.2.1.152\lib\netstandard2.0\MessagePack.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.11.2.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.11.2\lib\net40\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.11.2.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.11.2\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.11.2.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.11.2\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.11.2.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.11.2\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectListView, Version=2.9.1.1072, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <HintPath>..\packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpCompress, Version=0.25.1.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpCompress.0.25.1\lib\net46\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive, Version=4.4.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.4.4.1\lib\net46\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=1.4.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.8.1\lib\net461\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.7.1\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Data\Cards\AI\BlockHeader.cs" />
+    <Compile Include="Data\Cards\AI\ChaFileExtended.cs" />
+    <Compile Include="Data\Cards\AI\ChaFileParameter.cs" />
+    <Compile Include="Data\Cards\KK\BlockHeader.cs" />
+    <Compile Include="Data\Cards\KK\ChaFileExtended.cs" />
+    <Compile Include="Data\Cards\KK\ChaFileParameter.cs" />
+    <Compile Include="Data\Cards\KK\KoiCard.cs" />
+    <Compile Include="Data\Cards\PluginData.cs" />
+    <Compile Include="Data\Cards\Card.cs" />
+    <Compile Include="Data\Cards\CardLoader.cs" />
+    <Compile Include="Data\Cards\CardType.cs" />
+    <Compile Include="Data\Cards\CharaSex.cs" />
+    <Compile Include="Data\Cards\EC\BlockHeader.cs" />
+    <Compile Include="Data\Cards\EC\ChaFileExtended.cs" />
+    <Compile Include="Data\Cards\EC\ChaFileParameter.cs" />
+    <Compile Include="Data\Cards\AI\KoiCard.cs" />
+    <Compile Include="Data\Cards\EC\EmoCard.cs" />
+    <Compile Include="Data\Cards\Utility.cs" />
+    <Compile Include="Data\ExtData\ExtDataParser.cs" />
+    <Compile Include="Data\ExtData\Deserializers\SideloaderExtDataDeserializer.cs" />
+    <Compile Include="Data\ExtData\IExtDataDeserializer.cs" />
+    <Compile Include="Data\IFileInfoBase.cs" />
+    <Compile Include="Data\ModInfoBase.cs" />
+    <Compile Include="Data\Plugins\PluginInfo.cs" />
+    <Compile Include="Data\Plugins\PluginLoader.cs" />
+    <Compile Include="Data\Zipmods\SideloaderModInfo.cs" />
+    <Compile Include="Data\Zipmods\SideloaderModLoader.cs" />
+    <Compile Include="Data\Zipmods\SideloaderVersionComparer.cs" />
+    <Compile Include="Functions\GameType.cs" />
+    <Compile Include="Functions\InstallDirectoryHelper.cs" />
+    <Compile Include="Functions\ModInstaller.cs" />
+    <Compile Include="Functions\SelfUpdater.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Extensions.cs" />
+    <Compile Include="Util\FileSize.cs" />
+    <Compile Include="Util\ListTools.cs" />
+    <Compile Include="Util\LoadingDialog\LoadingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Util\LoadingDialog\LoadingDialog.designer.cs">
+      <DependentUpon>LoadingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\LoadingDialog\LoadingDialogInterface.cs" />
+    <Compile Include="Util\LogWriter.cs" />
+    <Compile Include="Util\OutdatedVersionException.cs" />
+    <Compile Include="Util\PathTools.cs" />
+    <Compile Include="Util\ProcessTools.cs" />
+    <Compile Include="Util\ProcessWaiter\ProcessWaiter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Util\ProcessWaiter\ProcessWaiter.designer.cs">
+      <DependentUpon>ProcessWaiter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\ProcessWaiter\ProcessWaiterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Util\ProcessWaiter\ProcessWaiterControl.designer.cs">
+      <DependentUpon>ProcessWaiterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\ResourceUtils.cs" />
+    <Compile Include="Util\RetryHelper.cs" />
+    <Compile Include="Util\SleepControls.cs" />
+    <Compile Include="Util\TypeConverters\DictionaryTypeConverter.cs" />
+    <Compile Include="Util\TypeConverters\ListTypeConverter.cs" />
+    <Compile Include="Util\UniversalDragAndDrop.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Util\LoadingDialog\LoadingDialog.resx">
+      <DependentUpon>LoadingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\ProcessWaiter\ProcessWaiter.resx">
+      <DependentUpon>ProcessWaiter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\ProcessWaiter\ProcessWaiter.ru.resx">
+      <DependentUpon>ProcessWaiter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\ProcessWaiter\ProcessWaiterControl.resx">
+      <DependentUpon>ProcessWaiterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\ProcessWaiter\ProcessWaiterControl.ru.resx">
+      <DependentUpon>ProcessWaiterControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
