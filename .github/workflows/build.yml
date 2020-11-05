@@ -19,16 +19,18 @@ jobs:
 
     - name: Extract
       shell: bash
-      run: 7z x $(find KKManager.SB3UGS -name *.7z) -olibs/SB3UGS
+      run: |
+        curl -Lo SB3UGS_v20.6.3.7z https://github.com/enimaroah/SB3Utility/releases/download/20.6.3/SB3UGS_v20.6.3.7z
+        7z x SB3UGS_v20.6.3.7z -osrc/libs/SB3UGS
 
     - name: Restore
-      run: nuget restore
+      run: nuget restore src/KKManager.sln
 
     - name: Build
-      run: msbuild /t:build /p:Configuration=Release
+      run: msbuild src/KKManager.sln /t:build /p:Configuration=Release
 
     - name: Upload artifact
       uses: actions/upload-artifact@v1
       with:
         name: Test
-        path: bin
+        path: src/bin
