@@ -48,6 +48,8 @@ namespace KKManager.Windows.Content
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonOpenModsDir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonSameGuid = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -73,17 +75,14 @@ namespace KKManager.Windows.Content
             this.olvColumnFilename,
             this.olvColumnWebsite});
             this.objectListView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.objectListView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            resources.ApplyResources(this.objectListView1, "objectListView1");
             this.objectListView1.FullRowSelect = true;
             this.objectListView1.GridLines = true;
             this.objectListView1.HideSelection = false;
-            this.objectListView1.Location = new System.Drawing.Point(0, 25);
             this.objectListView1.Name = "objectListView1";
             this.objectListView1.ShowGroups = false;
             this.objectListView1.ShowItemToolTips = true;
-            this.objectListView1.Size = new System.Drawing.Size(891, 547);
             this.objectListView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.objectListView1.TabIndex = 0;
             this.objectListView1.UseCompatibleStateImageBehavior = false;
             this.objectListView1.UseHyperlinks = true;
             this.objectListView1.View = System.Windows.Forms.View.Details;
@@ -97,54 +96,48 @@ namespace KKManager.Windows.Content
             this.olvColumnEnabled.MaximumWidth = 23;
             this.olvColumnEnabled.MinimumWidth = 23;
             this.olvColumnEnabled.Searchable = false;
-            this.olvColumnEnabled.Text = "";
-            this.olvColumnEnabled.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.olvColumnEnabled.Width = 23;
+            resources.ApplyResources(this.olvColumnEnabled, "olvColumnEnabled");
             // 
             // olvColumnName
             // 
             this.olvColumnName.AspectName = "Name";
             this.olvColumnName.MinimumWidth = 100;
-            this.olvColumnName.Text = "Name";
-            this.olvColumnName.Width = 171;
+            resources.ApplyResources(this.olvColumnName, "olvColumnName");
             // 
             // olvColumnVersion
             // 
             this.olvColumnVersion.AspectName = "Version";
             this.olvColumnVersion.MinimumWidth = 50;
-            this.olvColumnVersion.Text = "Version";
+            resources.ApplyResources(this.olvColumnVersion, "olvColumnVersion");
             // 
             // olvColumnAuthor
             // 
             this.olvColumnAuthor.AspectName = "Author";
             this.olvColumnAuthor.MinimumWidth = 50;
-            this.olvColumnAuthor.Text = "Author";
-            this.olvColumnAuthor.Width = 88;
+            resources.ApplyResources(this.olvColumnAuthor, "olvColumnAuthor");
             // 
             // olvColumnGuid
             // 
             this.olvColumnGuid.AspectName = "Guid";
             this.olvColumnGuid.MinimumWidth = 50;
-            this.olvColumnGuid.Text = "Guid";
-            this.olvColumnGuid.Width = 146;
+            resources.ApplyResources(this.olvColumnGuid, "olvColumnGuid");
             // 
             // olvColumnFilename
             // 
             this.olvColumnFilename.AspectName = "FileName";
             this.olvColumnFilename.MinimumWidth = 50;
-            this.olvColumnFilename.Text = "File name";
-            this.olvColumnFilename.Width = 91;
+            resources.ApplyResources(this.olvColumnFilename, "olvColumnFilename");
             // 
             // olvColumnWebsite
             // 
             this.olvColumnWebsite.AspectName = "Website";
             this.olvColumnWebsite.Hyperlink = true;
             this.olvColumnWebsite.MinimumWidth = 100;
-            this.olvColumnWebsite.Text = "Website";
-            this.olvColumnWebsite.Width = 123;
+            resources.ApplyResources(this.olvColumnWebsite, "olvColumnWebsite");
             // 
             // toolStrip1
             // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripSeparator1,
@@ -154,94 +147,88 @@ namespace KKManager.Windows.Content
             this.toolStripButtonDelete,
             this.toolStripSeparator3,
             this.toolStripButtonOpenModsDir,
+            this.toolStripSeparator4,
+            this.toolStripButtonSameGuid,
             this.toolStripTextBoxSearch});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(891, 25);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(50, 22);
-            this.toolStripButton1.Text = "Refresh";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // toolStripButtonEnable
             // 
             this.toolStripButtonEnable.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonEnable.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEnable.Image")));
-            this.toolStripButtonEnable.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.toolStripButtonEnable, "toolStripButtonEnable");
             this.toolStripButtonEnable.Name = "toolStripButtonEnable";
-            this.toolStripButtonEnable.Size = new System.Drawing.Size(46, 22);
-            this.toolStripButtonEnable.Text = "Enable";
             this.toolStripButtonEnable.Click += new System.EventHandler(this.toolStripButtonEnable_Click);
             // 
             // toolStripButtonDisable
             // 
             this.toolStripButtonDisable.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonDisable.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDisable.Image")));
-            this.toolStripButtonDisable.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.toolStripButtonDisable, "toolStripButtonDisable");
             this.toolStripButtonDisable.Name = "toolStripButtonDisable";
-            this.toolStripButtonDisable.Size = new System.Drawing.Size(49, 22);
-            this.toolStripButtonDisable.Text = "Disable";
             this.toolStripButtonDisable.Click += new System.EventHandler(this.toolStripButtonDisable_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
             // toolStripButtonDelete
             // 
             this.toolStripButtonDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelete.Image")));
-            this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.toolStripButtonDelete, "toolStripButtonDelete");
             this.toolStripButtonDelete.Name = "toolStripButtonDelete";
-            this.toolStripButtonDelete.Size = new System.Drawing.Size(44, 22);
-            this.toolStripButtonDelete.Text = "Delete";
             this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
             // toolStripButtonOpenModsDir
             // 
             this.toolStripButtonOpenModsDir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonOpenModsDir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.toolStripButtonOpenModsDir, "toolStripButtonOpenModsDir");
             this.toolStripButtonOpenModsDir.Name = "toolStripButtonOpenModsDir";
-            this.toolStripButtonOpenModsDir.Size = new System.Drawing.Size(123, 22);
-            this.toolStripButtonOpenModsDir.Text = "Open mods directory";
             this.toolStripButtonOpenModsDir.Click += new System.EventHandler(this.toolStripButtonOpenModsDir_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
+            // 
+            // toolStripButtonSameGuid
+            // 
+            this.toolStripButtonSameGuid.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            resources.ApplyResources(this.toolStripButtonSameGuid, "toolStripButtonSameGuid");
+            this.toolStripButtonSameGuid.Name = "toolStripButtonSameGuid";
+            this.toolStripButtonSameGuid.Click += new System.EventHandler(this.toolStripButtonSameGuid_Click);
             // 
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            resources.ApplyResources(this.toolStripTextBoxSearch, "toolStripTextBoxSearch");
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             // 
             // SideloaderModsWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(891, 572);
             this.Controls.Add(this.objectListView1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "SideloaderModsWindow";
-            this.Text = "Sideloader Mods";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SideloaderModsWindow_FormClosed);
             this.Shown += new System.EventHandler(this.SideloaderModsWindow_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
@@ -271,5 +258,7 @@ namespace KKManager.Windows.Content
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButtonOpenModsDir;
         private ToolStripTextBox toolStripTextBoxSearch;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripButton toolStripButtonSameGuid;
     }
 }

@@ -117,7 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="updateTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="toolStripButtonRefresh.Text" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="femaleCardFolderToolStripMenuItem.Text" xml:space="preserve">
+    <value>女性人物文件夾</value>
+  </data>
+  <data name="maleCardFolderToolStripMenuItem.Text" xml:space="preserve">
+    <value>男性人物文件夾</value>
+  </data>
+  <data name="toolStripOpenDropdown.Text" xml:space="preserve">
+    <value>文件夾</value>
+  </data>
+  <data name="detailsToolStripMenuItem.Text" xml:space="preserve">
+    <value>詳細信息</value>
+  </data>
+  <data name="smallIconsToolStripMenuItem.Text" xml:space="preserve">
+    <value>小圖標</value>
+  </data>
+  <data name="largeIconsToolStripMenuItem.Text" xml:space="preserve">
+    <value>大圖標</value>
+  </data>
+  <data name="toolStripViewSelect.Text" xml:space="preserve">
+    <value>視圖</value>
+  </data>
+  <data name="segregateBySexToolStripMenuItem.Text" xml:space="preserve">
+    <value>按性別排列</value>
+  </data>
+  <data name="renameCardsToolStripMenuItem.Text" xml:space="preserve">
+    <value>重命名選定的卡片文件</value>
+  </data>
+  <data name="toolStripDropDownButtonTools.Text" xml:space="preserve">
+    <value>工具</value>
+  </data>
 </root>

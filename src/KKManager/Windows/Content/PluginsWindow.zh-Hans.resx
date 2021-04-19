@@ -117,7 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="updateTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="olvColumnName.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="olvColumnVersion.Text" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="olvColumnAuthor.Text" xml:space="preserve">
+    <value>作者</value>
+  </data>
+  <data name="olvColumnFilename.Text" xml:space="preserve">
+    <value>文件名</value>
+  </data>
+  <data name="olvColumnWebsite.Text" xml:space="preserve">
+    <value>网站</value>
+  </data>
+  <data name="toolStripButton1.Text" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="toolStripButtonEnable.Text" xml:space="preserve">
+    <value>启用</value>
+  </data>
+  <data name="toolStripButtonDisable.Text" xml:space="preserve">
+    <value>禁用</value>
+  </data>
+  <data name="toolStripButtonDelete.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="toolStripButtonOpenDir.Text" xml:space="preserve">
+    <value>打开插件目录</value>
+  </data>
 </root>

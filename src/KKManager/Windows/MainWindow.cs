@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reactive.Linq;
@@ -57,11 +58,19 @@ namespace KKManager.Windows
 #endif
             var gameName = InstallDirectoryHelper.GameType.GetFancyGameName();
             var installDir = InstallDirectoryHelper.GameDirectory.FullName;
-            Text = $"KK Manager {version} (HS2 support edition) - [{gameName}] in {installDir}";
+            Text = $"KK Manager {version} (New downloader edition) - [{gameName}] in {installDir}";
             Console.WriteLine($"Game: {gameName}   Path: {installDir}");
 
             Settings.Default.Binder.BindControl(checkForUpdatesOnStartupToolStripMenuItem, settings => settings.AutoUpdateSearch, this);
             Settings.Default.Binder.SendUpdates(this);
+
+            if (Settings.Default.WindowLocation != new Point(-1, -1))
+            {
+                StartPosition = FormStartPosition.Manual;
+                Location = Settings.Default.WindowLocation;
+            }
+            if (!Settings.Default.WindowSize.IsEmpty) Size = Settings.Default.WindowSize;
+            if (Settings.Default.WindowMaximized) WindowState = FormWindowState.Maximized;
         }
 
         private static DirectoryInfo GetGameDirectory()
@@ -144,7 +153,7 @@ namespace KKManager.Windows
                 Title = "Select the install directory of your game"
             })
             {
-                retryFolderSelect:
+            retryFolderSelect:
                 if (fb.ShowDialog() == CommonFileDialogResult.Ok)
                 {
                     var path = fb.FileName;
@@ -328,6 +337,11 @@ namespace KKManager.Windows
                 dockPanel.SaveAsXml(s, Encoding.Unicode);
                 Settings.Default.DockState = Encoding.Unicode.GetString(s.ToArray());
             }
+
+            Settings.Default.WindowLocation = Location;
+            var maximized = WindowState == FormWindowState.Maximized;
+            Settings.Default.WindowMaximized = maximized;
+            if (!maximized) Settings.Default.WindowSize = Size;
         }
 
         private void openFemaleCardFolderToolStripMenuItem_Click(object sender, EventArgs e)
@@ -373,7 +387,11 @@ namespace KKManager.Windows
 
         private void readmeAndSourceCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/bbepis/KKManager");
+            var readmePath = Path.Combine(Program.ProgramLocation, "README.md");
+            if (File.Exists(readmePath))
+                Process.Start("notepad.exe", readmePath);
+            else
+                Process.Start("https://github.com/bbepis/KKManager");
         }
 
         private void installANewModToolStripMenuItem_Click(object sender, EventArgs e)
@@ -689,6 +707,55 @@ namespace KKManager.Windows
             if (await SelfUpdater.CheckForUpdatesAndShowDialog() == null)
                 MessageBox.Show("No KKManager updates were found. Check log for more information.", "Check for updates",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void settingsToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            // Populate language dropdown during first run
+            if (languagesToolStripMenuItem.DropDownItems.Count == 0)
+            {
+                var spaceWidth = TextRenderer.MeasureText(" ", Font, Size).Width;
+                ToolStripMenuItem CreateLanguageToggle(CultureInfo x)
+                {
+                    var textWidth = TextRenderer.MeasureText(x.NativeName, Font, Size).Width;
+                    return new ToolStripMenuItem(
+                            $"{x.NativeName.PadRight(50 - textWidth / spaceWidth)} {x.EnglishName}",
+                            null,
+                            (obj, args) =>
+                            {
+                                LanguageManager.CurrentCulture = (CultureInfo)((ToolStripMenuItem)obj).Tag;
+                                LanguageManager.ApplyCurrentCulture(this);
+                                MessageBox.Show(
+                                    "You might need to restart KKManager to fully change the laguage.",
+                                    "Language change", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            })
+                    { Tag = x };
+                }
+
+                languagesToolStripMenuItem.DropDownItems.AddRange(LanguageManager.SupportedLanguages.Select(CreateLanguageToggle).ToArray());
+            }
+
+            // Select current language in the language dropdown
+            var currentLang = LanguageManager.CurrentCulture;
+            foreach (ToolStripMenuItem langItem in languagesToolStripMenuItem.DropDownItems)
+            {
+                var lang = (CultureInfo)langItem.Tag;
+                langItem.Checked = lang.Equals(currentLang);
+            }
+        }
+
+        private void licenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var licensePath = Path.Combine(Program.ProgramLocation, "LICENSE");
+            if (File.Exists(licensePath))
+                Process.Start("notepad.exe", licensePath);
+            else
+                Process.Start("https://github.com/bbepis/KKManager");
+        }
+
+        private void websiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/bbepis/KKManager");
         }
     }
 }
