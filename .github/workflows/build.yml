@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@2008f912f56e61277eefaac6d1888b750582aa16
+      uses: microsoft/setup-msbuild@c26a08ba26249b81327e26f6ef381897b6a8754d
 
     - name: Setup NuGet.exe for use with actions
       uses: NuGet/setup-nuget@v1.0.2
@@ -20,8 +20,8 @@ jobs:
     - name: Extract
       shell: bash
       run: |
-        curl -Lo SB3UGS_v20.6.3.7z https://github.com/enimaroah/SB3Utility/releases/download/20.6.3/SB3UGS_v20.6.3.7z
-        7z x SB3UGS_v20.6.3.7z -osrc/libs/SB3UGS
+        curl -Lo SB3UGS_v20.6.6.7z https://github.com/enimaroah/SB3Utility/releases/download/20.6.6/SB3UGS_v20.6.6.7z
+        7z x SB3UGS_v20.6.6.7z -osrc/libs/SB3UGS
 
     - name: Restore
       run: nuget restore src/KKManager.sln
